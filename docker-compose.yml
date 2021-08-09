@@ -1,0 +1,55 @@
+version: "3"
+
+services:
+  couchbase:
+    container_name: couchbase-db
+    image: couchbase:latest
+    ports:
+      - target: "8091-8096:8091-8096"
+        published: "8091-8096:8091-8096"
+        mode: host
+      - target: "11210-11211:11210-11211"
+        published: "11210-11211:11210-11211"
+        mode: host
+    volumes:
+      - ./couchbase:/opt/couchbase/var
+
+  sync-gateway:
+    container_name: couchbase-sync-gateway
+    depends_on:
+      - server
+    entrypoint: ["/config.sh"]
+    image: couchbase/sync-gateway:2.7.0-community
+    ports:
+      - "4984:4984"
+      - "4985:4985"
+    volumes:
+      - ./docker/sync-gateway/config.json:/etc/sync_gateway/template.json
+      - ./docker/sync-gateway/config.sh:/config.sh
+      - ./docker/sync-gateway/sync-functions/active.js:/etc/sync_gateway/sync_functions/active.js
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - target: 27017
+        published: 27017
+        mode: host
+    volumes:
+      - ./mongodb:/data/db
+
+  couchdb:
+    container_name: couchdb
+    image: couchdb:3.1.1
+    environment:
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: password
+    ports:
+      - target: 5984
+        published: 5984
+        mode: host
+    volumes:
+      - ./couchdb:/opt/couchdb/data
