@@ -3,7 +3,7 @@ version: "3"
 services:
   couchbase:
     container_name: couchbase-db
-    image: couchbase:latest
+    image: couchbase/server:latest
     ports:
       - 8091:8091
       - 8092:8092
@@ -20,7 +20,7 @@ services:
     depends_on:
       - server
     entrypoint: ["/config.sh"]
-    image: couchbase/sync-gateway:2.7.0-community
+    image: couchbase/sync-gateway:2.8.2-community
     ports:
       - "4984:4984"
       - "4985:4985"
