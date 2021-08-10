@@ -8,7 +8,7 @@
   },
   "databases": {
     "db": {
-      "server": "http://couchbase-db:8091",
+      "server": "http://couchbase:8091",
       "bucket": "default",
       "username": "Administrator",
       "password": "password",
