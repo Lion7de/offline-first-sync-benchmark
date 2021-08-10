@@ -5,14 +5,15 @@ services:
     container_name: couchbase-db
     image: couchbase:latest
     ports:
-      - target: "8091-8096:8091-8096"
-        published: "8091-8096:8091-8096"
-        mode: host
-      - target: "11210-11211:11210-11211"
-        published: "11210-11211:11210-11211"
-        mode: host
+      - 8091:8091
+      - 8092:8092
+      - 8093:8093
+      - 8094:8094
+      - 11210:11210
     volumes:
       - ./couchbase:/opt/couchbase/var
+    networks:
+      - couchbase
 
   sync-gateway:
     container_name: couchbase-sync-gateway
@@ -24,6 +25,10 @@ services:
       - "4984:4984"
       - "4985:4985"
     volumes:
-      - ./docker/sync-gateway/config.json:/etc/sync_gateway/template.json
-      - ./docker/sync-gateway/config.sh:/config.sh
-      - ./docker/sync-gateway/sync-functions/active.js:/etc/sync_gateway/sync_functions/active.js
+      - ./couchbase-config/sync-gateway-config.json:/etc/sync_gateway/config.json
+    networks:
+      - couchbase
+
+networks:
+  couchbase:
+    driver: bridge
