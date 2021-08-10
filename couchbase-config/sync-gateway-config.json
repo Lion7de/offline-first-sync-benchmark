@@ -10,7 +10,7 @@
     "db": {
       "server": "http://couchbase:8091",
       "bucket": "default",
-      "username": "Administrator",
+      "username": "admin",
       "password": "password",
       "users": { "GUEST": { "disabled": false, "admin_channels": ["*"] } }
     }
