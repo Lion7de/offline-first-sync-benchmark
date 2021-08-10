@@ -18,7 +18,7 @@ services:
   sync-gateway:
     container_name: couchbase-sync-gateway
     depends_on:
-      - server
+      - couchbase-db
     entrypoint: ["/config.sh"]
     image: couchbase/sync-gateway:2.8.2-community
     ports:
