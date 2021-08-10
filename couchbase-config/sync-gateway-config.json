@@ -15,5 +15,11 @@
       "users": { "GUEST": { "disabled": false, "admin_channels": ["*"] } },
       "num_index_replicas": 0
     }
+  },
+  "CORS": {
+    "Origin": ["*"],
+    "LoginOrigin": ["*"],
+    "Headers": ["Content-Type"],
+    "MaxAge": 1728000
   }
 }

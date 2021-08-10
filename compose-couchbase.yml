@@ -21,8 +21,8 @@ services:
       - couchbase
     image: couchbase/sync-gateway:2.8.2-community
     ports:
-      - "4984:4984"
-      - "4985:4985"
+      - 4984:4984
+      - 4985:4985
     volumes:
       - ./couchbase-config/sync-gateway-config.json:/etc/sync_gateway/config.json
     networks:
