@@ -12,7 +12,8 @@
       "bucket": "default",
       "username": "admin",
       "password": "password",
-      "users": { "GUEST": { "disabled": false, "admin_channels": ["*"] } }
+      "users": { "GUEST": { "disabled": false, "admin_channels": ["*"] } },
+      "num_index_replicas": 0
     }
   }
 }
