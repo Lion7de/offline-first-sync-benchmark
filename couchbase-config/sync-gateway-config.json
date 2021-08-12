@@ -1,4 +1,5 @@
 {
+  "adminInterface": ":4985",
   "logging": {
     "console": {
       "enabled": true,
