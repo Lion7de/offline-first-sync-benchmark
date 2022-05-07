@@ -10,5 +10,13 @@
   "license": "MIT",
   "dependencies": {
     "pouchdb": "^7.3.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0"
   }
 }
