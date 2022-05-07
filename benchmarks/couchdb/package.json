@@ -1,0 +1,14 @@
+{
+  "name": "couchdb-benchmark",
+  "version": "0.0.1",
+  "description": "Sync Protocol Benchmark for CouchDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tim Ansink",
+  "license": "MIT",
+  "dependencies": {
+    "pouchdb": "^7.3.0"
+  }
+}
